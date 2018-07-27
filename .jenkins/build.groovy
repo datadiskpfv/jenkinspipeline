@@ -7,7 +7,7 @@ node {
         // checkout repository
         checkout scm
 
-        bat "xcopy /e /v .docker\\build tmp-docker-build-context"
+        bat "xcopy /e /v .docker\\build ."
 
         // checkout input branch
         echo "BRANCH NAME: ${BRANCH_NAME}"
@@ -34,7 +34,7 @@ node {
         withDockerServer([uri: "tcp://192.168.50.171:4243"]) {
             withDockerRegistry([url: "https://192.168.50.171:5000/"]) {
                 // we give the image the same version as the .war package
-                def image = docker.build("jenkinspipeline:latest}", "--build-arg PACKAGE_VERSION=1.0 .\\tmp-docker-build-context")
+                def image = docker.build("jenkinspipeline:latest}", ".")
                 //image.push()
             }
         }
