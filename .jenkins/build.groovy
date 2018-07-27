@@ -26,7 +26,7 @@ node {
 
     stage ('Docker Build') {
         // prepare docker build context
-        bat "cp target/jenkinspipeline.jar ./tmp-docker-build-context"
+        bat "copy target/jenkinspipeline.jar ./tmp-docker-build-context"
 
         // Build and push image with Jenkins' docker-plugin
         withDockerServer([uri: "tcp://192.168.50.171:4243"]) {
