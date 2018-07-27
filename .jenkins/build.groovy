@@ -35,9 +35,9 @@ node {
             withDockerRegistry([url: "https://192.168.50.171:5000/"]) {
                 // we give the image the same version as the .war package
 
-                def DOCKER_HOME = "${tool 'Docker'}/bin"
+                def DOCKER_HOME = "${tool 'Docker'}\\bin"
                 echo "DOCKER_HOME: ${DOCKER_HOME}"
-                //bat "docker build . -t jenkinspipeline"
+                bat "${DOCKER_HOME}\\docker build . -t jenkinspipeline"
                 //def image = docker.build("jenkinspipeline:latest}", ".")
                 //image.push()
             }
