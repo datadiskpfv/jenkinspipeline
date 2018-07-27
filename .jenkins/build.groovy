@@ -18,8 +18,7 @@ node {
 
         echo "MAVEN_HOME: $MVN_HOME"
 
-        def pomVersion = bat(script: 'mvn -q -Dexec.executable=\'echo\' -Dexec.args=\'${project.version}\' --non-recursive exec:exec', returnStdout: true).trim()
-        echo "POM Version: ${pomVersion}"
+        bat "mvn versions:set -DnewVersion=1.0"
 
     }
 }
