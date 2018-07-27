@@ -33,12 +33,8 @@ node {
         // Build and push image with Jenkins' docker-plugin
         withDockerServer([uri: "tcp://192.168.50.171:4243"]) {
             withDockerRegistry([url: "https://192.168.50.171:5000/"]) {
-                // we give the image the same version as the .war package
-
-                bat "docker info"
-                //bat "docker build -t jenkinspipeline ."
-                def image = docker.build("jenkinspipeline:latest}", ".")
-                //image.push()
+                //bat "docker info"
+                bat "docker build -t jenkinspipeline ."
             }
         }
     }
