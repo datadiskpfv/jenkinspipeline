@@ -5,7 +5,7 @@ node {
 
     stage ('Checkout') {
         // checkout repository
-        //checkout scm
+        checkout scm
 
         // checkout input branch
         echo "BRANCH NAME: ${BRANCH_NAME}"
