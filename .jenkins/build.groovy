@@ -11,4 +11,11 @@ node {
         echo "BRANCH NAME: ${BRANCH_NAME}"
         bat "git checkout ${BRANCH_NAME}"
     }
+
+    stage ('Determine Branch Version') {
+        // add maven to path
+        def MVN_HOME = "${tool 'Maven-3.5.4'}/bin"
+
+        echo "MAVEN_HOME: $MVN_HOME"
+    }
 }
