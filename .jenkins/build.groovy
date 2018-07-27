@@ -15,10 +15,12 @@ node {
     stage ('Determine Branch Version') {
         // add maven to path
         def MVN_HOME = "${tool 'Maven-3.5.4'}/bin"
-
         echo "MAVEN_HOME: $MVN_HOME"
-
         bat "mvn versions:set -DnewVersion=1.0"
+    }
 
+    stage ('Java Build') {
+        // build .war package
+        bat 'mvn clean package -U'
     }
 }
