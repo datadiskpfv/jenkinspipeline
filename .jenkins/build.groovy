@@ -26,13 +26,13 @@ node {
 
     stage ('Docker Build') {
         // prepare docker build context
-        bat "copy target/jenkinspipeline.jar ./tmp-docker-build-context"
+        bat "copy target/jenkinspipeline-1.0.jar tmp-docker-build-context"
 
         // Build and push image with Jenkins' docker-plugin
         withDockerServer([uri: "tcp://192.168.50.171:4243"]) {
             withDockerRegistry([credentialsId: 'docker-registry-credentials', url: "https://192.168.50.171:5000/"]) {
                 // we give the image the same version as the .war package
-                def image = docker.build("jenkinspipeline:latest}", "--build-arg PACKAGE_VERSION=1.0 ./tmp-docker-build-context")
+                def image = docker.build("jenkinspipeline:latest}", "--build-arg PACKAGE_VERSION=1.0 tmp-docker-build-context")
                 image.push()
             }
         }
