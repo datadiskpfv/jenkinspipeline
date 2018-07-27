@@ -35,7 +35,7 @@ node {
             withDockerRegistry([url: "https://192.168.50.171:5000/"]) {
                 //bat "docker info"
                 bat "docker build -t jenkinspipeline:1.0 ."
-                bat "docker push localhost:5000/jenkinspipeline:1.0"
+                bat "docker push jenkinspipeline:1.0"
             }
         }
     }
