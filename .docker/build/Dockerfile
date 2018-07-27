@@ -4,7 +4,7 @@ FROM tomcat:8.0.38
 ARG PACKAGE_VERSION
 RUN echo "${PACKAGE_VERSION}" >> /usr/local/tomcat/webapps/version.txt
 
-COPY jenkinspipeline.jar /usr/local/tomcat/webapps/jenkinspipeline.jar
+COPY jenkinspipeline-1.0.jar /usr/local/tomcat/webapps/jenkinspipeline-1.0.jar
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
