@@ -7,6 +7,8 @@ node {
         // checkout repository
         checkout scm
 
+        sh "copy -r .docker/build tmp-docker-build-context"
+
         // checkout input branch
         echo "BRANCH NAME: ${BRANCH_NAME}"
         bat "git checkout ${BRANCH_NAME}"
