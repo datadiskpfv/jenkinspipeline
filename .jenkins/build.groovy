@@ -9,6 +9,6 @@ node {
 
         // checkout input branch
         echo "BRANCH NAME: ${BRANCH_NAME}"
-        //bat "git checkout ${caller.env.BRANCH_NAME}"
+        bat "git checkout ${BRANCH_NAME}"
     }
 }
