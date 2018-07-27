@@ -8,6 +8,6 @@ node {
         checkout scm
 
         // checkout input branch
-        sh "git checkout ${caller.env.BRANCH_NAME}"
+        bat "git checkout ${caller.env.BRANCH_NAME}"
     }
 }
