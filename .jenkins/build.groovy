@@ -36,8 +36,8 @@ node {
                 // we give the image the same version as the .war package
 
                 bat "docker info"
-                bat "docker build -t jenkinspipeline ."
-                //def image = docker.build("jenkinspipeline:latest}", ".")
+                //bat "docker build -t jenkinspipeline ."
+                def image = docker.build("jenkinspipeline:latest}", ".")
                 //image.push()
             }
         }
